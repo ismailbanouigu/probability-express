@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="description" content="Four Pollinations decision models steer one night train through uncertainty." />
+    <title>Probability Express — A calibration game for AI models</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./config.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.20/dist/connect.js"></script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Skip to the game</a>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Probability Express home"><span class="brand-mark">PE</span><span>Probability<br />Express</span></a>
+      <nav aria-label="Primary"><a href="#game">Live run</a><a href="#rules">How scoring works</a><a href="https://github.com/pollinations/pollinations/issues/19176" target="_blank" rel="noreferrer">Quest #19176 ↗</a></nav>
+      <div class="wallet"><small>CONDUCTOR PASS</small><polli-connect id="polliConnect" budget="2.5" expiry="7" models="typesafe/jev-1.14,microsoft/microsoft-decision-1,perplexity/pplx-decider-v1.2,openai/gpt-6-luna-decisions" hide-buy-pollen menu-links='[{"label":"Quest #19176","href":"https://github.com/pollinations/pollinations/issues/19176","icon":"app"}]'></polli-connect></div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> LIVE DECISION-MODEL CALIBRATION GAME</p>
+          <h1 id="hero-title">The midnight line<br />needs a <em>decision.</em></h1>
+          <p class="lede">Four AI models see the same hazard. Each picks a maneuver and stakes a probability. The train follows their consensus. The fog decides who was calibrated.</p>
+          <div class="hero-actions"><a class="button primary" href="#game">BOARD THE RUN <span>↓</span></a><button class="button ghost" id="heroDemo" type="button">WATCH FREE DEMO</button></div>
+          <div class="hero-proof"><span>04 DECISION MODELS</span><span>01 SHARED TRAIN</span><span>100% VISIBLE ODDS</span></div>
+        </div>
+        <div class="hero-visual" aria-label="A night train moving through a probability field">
+          <div class="moon"><span>73%</span></div>
+          <div class="signal signal-a"><i></i><small>TRACK A</small></div><div class="signal signal-b"><i></i><small>TRACK B</small></div>
+          <div class="train"><div class="engine"><b></b><i></i><span>PX</span></div><div class="car"></div><div class="car short"></div></div>
+          <div class="rails"><i></i><i></i><i></i><i></i></div>
+          <div class="mist mist-one"></div><div class="mist mist-two"></div>
+          <p class="visual-caption"><span>RUN 006</span> / DESTINATION UNKNOWN / CALIBRATION RECORDED</p>
+        </div>
+      </section>
+
+      <section class="game" id="game" aria-labelledby="game-title">
+        <div class="section-heading"><div><p class="eyebrow"><span></span> DISPATCH CONSOLE</p><h2 id="game-title">One hazard.<br /><em>Four probability maps.</em></h2></div><div class="run-meta"><span>RUN <strong id="runNumber">001</strong></span><span>ROUND <strong id="roundNumber">0 / 5</strong></span></div></div>
+
+        <div class="console">
+          <section class="hazard-panel" aria-live="polite">
+            <div class="panel-label"><span>CURRENT SIGNAL</span><span id="hazardCode">PX–00</span></div>
+            <div class="hazard-icon" id="hazardIcon" aria-hidden="true">⌁</div>
+            <p class="hazard-kicker" id="hazardKicker">AWAITING DEPARTURE</p>
+            <h3 id="hazardTitle">The platform is quiet.</h3>
+            <p id="hazardBrief">Start a live round or run the zero-Pollen demonstration. The models—not the passenger—will choose the maneuver.</p>
+            <div class="clue-list" id="clueList"><span>NO ACTIVE HAZARD</span><span>ODDS SEALED</span><span>CREW READY</span></div>
+            <div class="outcome" id="outcome" data-tone="idle"><small>OUTCOME WINDOW</small><strong id="outcomeTitle">Not resolved</strong><p id="outcomeText">Consensus and the d100 roll will appear here.</p></div>
+          </section>
+
+          <section class="decision-panel">
+            <div class="panel-label"><span>MODEL CREW</span><span>CALIBRATION LEDGER</span></div>
+            <div class="model-grid" id="modelGrid"></div>
+            <div class="consensus">
+              <div><small>CREW CONSENSUS</small><strong id="consensusName">No maneuver yet</strong><p id="consensusReason">Average probability across the available model crew.</p></div>
+              <div class="consensus-meter"><span id="consensusMeter"></span><b id="consensusValue">0%</b></div>
+            </div>
+            <div class="controls">
+              <button class="button primary full" id="liveRound" type="button">RUN LIVE MODEL ROUND <span>→</span></button>
+              <button class="button ghost full" id="demoRound" type="button">ZERO-POLLEN DEMO ROUND</button>
+              <button class="text-button" id="resetRun" type="button">RESET THIS RUN</button>
+            </div>
+            <p class="privacy">Live rounds use the temporary key you approve in Pollinations. The key stays in this tab. A paid round can start only from your direct button press.</p>
+          </section>
+        </div>
+
+        <div class="status-strip" aria-label="Train status">
+          <div><small>TRAIN INTEGRITY</small><strong id="integrity">100%</strong><span class="bar"><i id="integrityBar"></i></span></div>
+          <div><small>MINUTES TO TERMINUS</small><strong id="minutes">42</strong></div>
+          <div><small>SIGNALS CLEARED</small><strong id="cleared">0</strong></div>
+          <div><small>CREW LEADER</small><strong id="leader">—</strong></div>
+        </div>
+      </section>
+
+      <section class="rules" id="rules" aria-labelledby="rules-title">
+        <div class="rules-intro"><p class="eyebrow"><span></span> OPEN RULEBOOK</p><h2 id="rules-title">Confidence is a bet.<br /><em>Calibration keeps score.</em></h2><p>Probability Express is not a chat wrapper. Every model returns a typed choice and a full probability distribution through Pollinations’ decision endpoint.</p></div>
+        <div class="rule-grid">
+          <article><span>01</span><h3>Independent dispatch</h3><p>Every model gets the same train state and hazard. They answer independently, so no model can copy the others.</p></article>
+          <article><span>02</span><h3>Probability consensus</h3><p>We average the complete distributions—not just the winning labels—to pick the crew maneuver.</p></article>
+          <article><span>03</span><h3>Visible resolution</h3><p>Each maneuver has a published success threshold. A visible d100 roll resolves the train’s fate.</p></article>
+          <article><span>04</span><h3>Brier-style score</h3><p>Calibrated confidence earns points. Overconfident misses hurt more than honest uncertainty.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#top"><span class="brand-mark">PE</span><span>Probability<br />Express</span></a><p>Built for Pollinations Quest #19176 · models play, passengers observe.</p><a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" /></a></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
