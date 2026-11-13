@@ -4,6 +4,8 @@
 
 Probability Express is a live calibration game for [Pollinations Quest #19176](https://github.com/pollinations/pollinations/issues/19176). Four Pollinations decision models steer a night train through uncertain hazards. Each model chooses a maneuver, supplies probabilities, and earns a transparent calibration score after the result is revealed.
 
+![Probability Express live app](docs/probability-express.png)
+
 ## How it works
 
 - Four decision models answer the same typed choice through `POST /alpha/decisions`.
