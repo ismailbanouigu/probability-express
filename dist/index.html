@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07110f" />
-    <meta name="description" content="Four Pollinations decision models steer one night train through uncertainty." />
+    <meta name="description" content="Three Pollinations decision models steer one night train through uncertainty." />
     <title>Probability Express — A calibration game for AI models</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +20,7 @@
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Probability Express home"><span class="brand-mark">PE</span><span>Probability<br />Express</span></a>
       <nav aria-label="Primary"><a href="#game">Live run</a><a href="#rules">How scoring works</a><a href="https://github.com/pollinations/pollinations/issues/19176" target="_blank" rel="noreferrer">Quest #19176 ↗</a></nav>
-      <div class="wallet"><small>CONDUCTOR PASS</small><polli-connect id="polliConnect" budget="2.5" expiry="7" models="typesafe/jev-1.14,microsoft/microsoft-decision-1,perplexity/pplx-decider-v1.2,openai/gpt-6-luna-decisions" hide-buy-pollen menu-links='[{"label":"Quest #19176","href":"https://github.com/pollinations/pollinations/issues/19176","icon":"app"}]'></polli-connect></div>
+      <div class="wallet"><small>CONDUCTOR PASS</small><polli-connect id="polliConnect" budget="2.5" expiry="7" models="microsoft/microsoft-decision-1,vllm-sr/d3,respan/span-01-lite" hide-buy-pollen menu-links='[{"label":"Quest #19176","href":"https://github.com/pollinations/pollinations/issues/19176","icon":"app"}]'></polli-connect></div>
     </header>
 
     <main id="top">
@@ -28,7 +28,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span></span> LIVE DECISION-MODEL CALIBRATION GAME</p>
           <h1 id="hero-title">The midnight line<br />needs a <em>decision.</em></h1>
-          <p class="lede">Four AI models see the same hazard. Each picks a maneuver and stakes a probability. The train follows their consensus. The fog decides who was calibrated.</p>
+          <p class="lede">Three AI models see the same hazard. Each picks a maneuver and stakes a probability. The train follows their consensus. The fog decides who was calibrated.</p>
           <div class="hero-actions"><a class="button primary" href="#game">BOARD THE RUN <span>↓</span></a><button class="button ghost" id="heroDemo" type="button">WATCH FREE DEMO</button></div>
           <div class="hero-proof"><span>04 DECISION MODELS</span><span>01 SHARED TRAIN</span><span>100% VISIBLE ODDS</span></div>
         </div>
@@ -43,7 +43,7 @@
       </section>
 
       <section class="game" id="game" aria-labelledby="game-title">
-        <div class="section-heading"><div><p class="eyebrow"><span></span> DISPATCH CONSOLE</p><h2 id="game-title">One hazard.<br /><em>Four probability maps.</em></h2></div><div class="run-meta"><span>RUN <strong id="runNumber">001</strong></span><span>ROUND <strong id="roundNumber">0 / 5</strong></span></div></div>
+        <div class="section-heading"><div><p class="eyebrow"><span></span> DISPATCH CONSOLE</p><h2 id="game-title">One hazard.<br /><em>Three probability maps.</em></h2></div><div class="run-meta"><span>RUN <strong id="runNumber">001</strong></span><span>ROUND <strong id="roundNumber">0 / 5</strong></span></div></div>
 
         <div class="console">
           <section class="hazard-panel" aria-live="polite">

@@ -3,10 +3,9 @@ const connect = $("#polliConnect");
 const appKey = window.PROBABILITY_EXPRESS_CONFIG?.appKey || "";
 
 const MODELS = [
-  { id: "typesafe/jev-1.14", name: "Jev", maker: "TYPESAFE", glyph: "JV" },
   { id: "microsoft/microsoft-decision-1", name: "Decision-1", maker: "MICROSOFT", glyph: "M1" },
-  { id: "perplexity/pplx-decider-v1.2", name: "Decider", maker: "PERPLEXITY", glyph: "PD" },
-  { id: "openai/gpt-6-luna-decisions", name: "Luna", maker: "OPENAI", glyph: "LU" }
+  { id: "vllm-sr/d3", name: "D3", maker: "VLLM-SR", glyph: "D3" },
+  { id: "respan/span-01-lite", name: "Span-01 Lite", maker: "RESPAN", glyph: "SP" }
 ];
 
 const HAZARDS = [
@@ -40,8 +39,7 @@ const HAZARDS = [
 const DEMO_VOTES = [
   { choice: "channelB", confidence: .82, probabilities: { channelA: .08, channelB: .82, manual: .10 } },
   { choice: "manual", confidence: .51, probabilities: { channelA: .12, channelB: .37, manual: .51 } },
-  { choice: "channelB", confidence: .74, probabilities: { channelA: .11, channelB: .74, manual: .15 } },
-  { choice: "channelB", confidence: .66, probabilities: { channelA: .16, channelB: .66, manual: .18 } }
+  { choice: "channelB", confidence: .74, probabilities: { channelA: .11, channelB: .74, manual: .15 } }
 ];
 
 let state = freshState();
