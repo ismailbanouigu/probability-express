@@ -10,14 +10,14 @@ test("is wired to Quest 19176 and Pollinations BYOP", () => {
   assert.match(html, /Quest #19176/);
   assert.match(html, /<polli-connect/);
   assert.match(html, /budget="2\.5"/);
-  assert.match(html, /typesafe\/jev-1\.14/);
+  assert.match(html, /vllm-sr\/d3/);
 });
 
-test("uses the native typed decision endpoint with four models", () => {
+test("uses the native typed decision endpoint with three free models", () => {
   assert.match(js, /alpha\/decisions/);
   assert.match(js, /microsoft\/microsoft-decision-1/);
-  assert.match(js, /perplexity\/pplx-decider-v1\.2/);
-  assert.match(js, /openai\/gpt-6-luna-decisions/);
+  assert.match(js, /vllm-sr\/d3/);
+  assert.match(js, /respan\/span-01-lite/);
   assert.match(js, /Promise\.all\(MODELS\.map/);
 });
 
